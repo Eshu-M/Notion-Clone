@@ -2,8 +2,7 @@
 
 import { useTheme } from "next-themes";
 import {
-  BlockNoteEditor,
-  PartialBlock
+  BlockNoteEditor
 } from "@blocknote/core";
 import {
   BlockNoteView,
@@ -12,6 +11,14 @@ import {
 import "@blocknote/core/style.css";
 
 import { useEdgeStore } from "@/lib/edgestore";
+
+type PartialBlock = {
+  id?: string;
+  type?: string;
+  props?: Partial<Record<string, string>>;
+  content?: string | InlineContent[];
+  children?: BlockSpec[];
+};
 
 interface EditorProps {
   onChange: (value: string) => void;
